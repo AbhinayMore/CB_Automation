@@ -4,48 +4,51 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import utils.WaitUtils;
 
+public class MemberMeetingPage extends BasePage {
 
+    // ================= BUTTON =================
 
-public class MemberMeetingPage  extends BasePage {
-
-    // ================= BUTTONS =================
-
-    private By scheduleMeetBtn =
-            By.xpath("//*[@id=\"content-page\"]/div/div/div/div/div[1]/div[2]/button");
+    private By scheduleMeetingBtn =
+            By.xpath("//button[contains(text(),'Schedule 1-to-1')]");
 
     private By scheduleBtn =
-            By.xpath("//*[@id=\"content-page\"]/div/div/div/div/div[2]/form/div[2]/button[2]");
+            By.xpath("//button[normalize-space()='Schedule']");
 
     // ================= FIELDS =================
 
-    // Meets Mode (normal select)
-//    private By meetsModeDropdown =
-//            By.name("meeting_mode");
+    // Subject / Title
+    private By subjectInput =
+            By.xpath("//input[@placeholder='e.g. Project Sync-up']");
 
+    // Participant dropdown
+    private By participantDropdown =
+            By.name("invitees");
 
-    private By meetsLink =
-            By.name("meets_link");
+    // Date
+    private By meetingDate =
+            By.name("date");
 
-    private By meetsDate =
-            By.xpath("//input[@type='date']");
+    // Mode dropdown (Virtual / Offline)
+    private By meetingMode =
+            By.xpath("//select[contains(@name,'mode')]");
 
-    // Start & End time (select)
+    // Start time
     private By startTime =
-            By.name("meets_start_time");
+            By.name("startTime");
 
     private By endTime =
-            By.name("meets_end_time");
+            By.name("endTime");
 
-    // Member (react-select)
-    private By selectMemberInput =
-            By.xpath("//input[@role='combobox']");
+    // Meeting link (appears when Virtual selected)
+    private By meetingLink =
+            By.xpath("//input[contains(@placeholder,'zoom')]");
 
+    // Description / agenda
     private By description =
-            By.name("meets_description");
+            By.xpath("//textarea | //input[contains(@placeholder,'meeting')]");
 
     // ================= SUCCESS =================
 
@@ -56,57 +59,84 @@ public class MemberMeetingPage  extends BasePage {
         super(driver);
     }
 
-    // ================= ACTIONS =================
+    // ================= ACTION METHODS =================
 
-    public void clickScheduleMeets() {
-        WaitUtils.waitForClickable(driver, scheduleMeetBtn).click();
+    public void clickScheduleMeetingButton() {
+        WaitUtils.waitForClickable(driver, scheduleMeetingBtn).click();
     }
 
-//    public void selectMeetsMode(String mode) {
-//        Select select =
-//                new Select(WaitUtils.waitForVisible(driver, meetsModeDropdown));
-//        select.selectByVisibleText(mode);
-//    }
+    public void enterSubject(String subject) {
+        WaitUtils.waitForVisible(driver, subjectInput).sendKeys(subject);
+    }
 
+    public void selectParticipant(String participantName) {
 
-    public void enterMeetLink(String link) {
-        WaitUtils.waitForVisible(driver, meetsLink).sendKeys(link);
+        Select select =
+                new Select(
+                        WaitUtils.waitForVisible(driver, participantDropdown)
+                );
+
+        select.selectByVisibleText(participantName);
     }
 
     public void selectDate(String date) {
-        WaitUtils.waitForVisible(driver, meetsDate).sendKeys(date);
+
+        // clear existing value first
+        WaitUtils.waitForVisible(driver, meetingDate).clear();
+
+        // enter date in yyyy-MM-dd format
+        WaitUtils.waitForVisible(driver, meetingDate).sendKeys(date);
+    }
+
+    public void selectMeetingMode(String mode, String linkIfVirtual) {
+
+        Select select =
+                new Select(WaitUtils.waitForVisible(driver, meetingMode));
+
+        select.selectByVisibleText(mode);
+
+        // Virtual mode → meeting link field appears
+        if (mode.equalsIgnoreCase("Virtual")) {
+            WaitUtils.waitForVisible(driver, meetingLink)
+                    .sendKeys(linkIfVirtual);
+        }
     }
 
     public void selectStartTime(String time) {
-        Select select = new Select(WaitUtils.waitForVisible(driver, startTime));
-        select.selectByVisibleText(time);
+
+        WaitUtils.waitForVisible(driver, startTime).clear();
+
+        WaitUtils.waitForVisible(driver, startTime).sendKeys(time);
     }
+
 
     public void selectEndTime(String time) {
-        Select select = new Select(WaitUtils.waitForVisible(driver, endTime));
-        select.selectByVisibleText(time);
-    }
 
-    public void selectMember(String member) {
-        WebElement input = WaitUtils.waitForVisible(driver, selectMemberInput);
-        input.click();
-        input.sendKeys(member);
-        input.sendKeys(Keys.ENTER);
+        WaitUtils.waitForVisible(driver, endTime).clear();
+
+        WaitUtils.waitForVisible(driver, endTime).sendKeys(time);
     }
 
     public void enterDescription(String text) {
         WaitUtils.waitForVisible(driver, description).sendKeys(text);
     }
 
-    public void clickSchedule() {
+    public void clickScheduleButton() {
         WaitUtils.waitForClickable(driver, scheduleBtn).click();
     }
 
-    public boolean waitForSuccessMessage() {
+    // ================= SUCCESS ASSERT =================
+
+    public boolean isMeetingScheduledSuccessfully() {
+
         try {
+
             WaitUtils.waitForVisible(driver, successAlert);
+
             return true;
+
         } catch (Exception e) {
+
             return false;
         }
     }

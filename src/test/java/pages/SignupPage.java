@@ -7,13 +7,13 @@ import utils.WaitUtils;
 
 public class SignupPage extends BasePage {
 	// 🔹 Locators (update ids/xpaths if needed)
-	private By firstName = By.xpath("//*[@id=\"fname\"]");
-	private By lastName = By.xpath("//*[@id=\"lname\"]");
+	private By firstName = By.xpath("//*[@id=\"firstName\"]");
+	private By lastName = By.xpath("//*[@id=\"lastName\"]");
 	private By emailId = By.xpath("//*[@id=\"email\"]");
-	private By contactNumber = By.xpath("//*[@id=\"ccno\"]");
-	private By yearsInBusiness = By.xpath("//*[@id=\"no_of_years_in_business\"]");
-	private By signupButton = By.xpath("//*[@id=\"root\"]/div/section/div[2]/div/div[2]/div/div[3]/a[2]");
-	private By successMessage = By.xpath("//*[@id=\"root\"]/div[2]/div[3]/button");
+	private By contactNumber = By.xpath("//*[@id=\"contactNumber\"]");
+	private By yearsInBusiness = By.xpath("//*[@id=\"yearsInBusiness\"]");
+	private By signupButton = By.xpath("//button[contains(., 'Complete Registration')]");
+	private By successMessage = By.xpath("//*[@id=\"root\"]/section");
 	private By errorMessage = By.xpath("//*[@id=\"root\"]/div/section/div[2]/div/div[2]/div/div[2]/div/div[2]");
 	// 🔹 Constructor
 	public SignupPage(WebDriver driver) {

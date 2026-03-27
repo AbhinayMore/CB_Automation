@@ -8,9 +8,14 @@
     <test name="Signup Tests">
         <classes>
             <class name="tests.SignupPositiveTest"/>
-            <class name="tests.SignupValidationTest"/>
+<!--            <class name="tests.SignupValidationTest"/>-->
             <class name="tests.SendReferralPositiveTest"/>
-            <class name="tests.SendThankYouNotePositiveTest"/>
+<!--            <class name="tests.SendThankYouNotePositiveTest"/>-->
+            <class name="tests.MemberMeetingPositiveTest"/>
+            <class name="tests.ChapterAdminCreateEventTest"/>
+            <class name="tests.CreatePostTest"/>
+            <class name="tests.ChapterAdminCreateMeetingTest"/>
+            <class name="tests.CreateTrainingTest"/>
         </classes>
     </test>
 

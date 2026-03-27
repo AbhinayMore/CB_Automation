@@ -12,46 +12,55 @@ public class SendReferralPositiveTest extends BaseTest {
     @Test
     public void verifyUserCanSendReferralSuccessfully() {
 
-        // 1️⃣ Open app
+        // 1️⃣ Open application
         driver.get("https://nell.nellinfotech.com/");
 
         // 2️⃣ Login
         LoginPage login = new LoginPage(driver);
-        login.login("abhim8768@gmail.com", "abhinay123");
+        login.login(
+                "abhim8768@gmail.com",
+                "abhinay1"
+        );
 
-        // 3️⃣ Open menu → Referrals Sent
+        // 3️⃣ Sidebar → Referrals → Referrals Sent
         SidebarPage sidebar = new SidebarPage(driver);
-        sidebar.openMenu();
         sidebar.openReferrals();
         sidebar.openReferralsSent();
 
-        // 4️⃣ Send Referral
+        // 4️⃣ Click Send Referral button
         ReferralPage referral = new ReferralPage(driver);
-        referral.clickSendReferral();
+        referral.clickSendReferralButton();
 
-        referral.selectMember("Amol K");
-        referral.selectFlag("Hot");
+        // 5️⃣ Fill referral form
+        referral.selectMember("Abhinay More");
 
-        referral.fillReferralForm(
-                "Automation Lead",
-                "lead@testmail.com",
-                generateMobileNumber(),
-                "Test Company",
+        referral.enterClientName("Automation Lead");
+
+        referral.enterContactNumber(generateMobileNumber());
+
+        referral.selectPriorityLevel("Hot");
+
+        referral.enterCompanyName("Test Company");
+
+        referral.enterAdditionalNotes(
                 "Referral created via automation"
         );
 
-        referral.submit();
+        referral.submitReferral();
 
-        // 5️⃣ Validation
+        // 6️⃣ Assertion
         Assert.assertTrue(
-                referral.waitForSuccessMessage(),
-                "Success alert was shown in UI but automation could not detect it"
+                referral.isReferralSentSuccessfully(),
+                "Referral was not sent successfully"
         );
-
     }
 
+
+    // Dynamic mobile number generator
     private String generateMobileNumber() {
-        long ts = System.currentTimeMillis();
-        return "9" + String.valueOf(ts).substring(4, 13);
+
+        long timestamp = System.currentTimeMillis();
+
+        return "9" + String.valueOf(timestamp).substring(4, 13);
     }
 }

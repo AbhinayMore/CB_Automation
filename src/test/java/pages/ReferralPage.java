@@ -10,80 +10,150 @@ import utils.WaitUtils;
 
 public class ReferralPage extends BasePage {
 
-    // Send Referral button
+    // ================= BUTTON =================
+
     private By sendReferralBtn =
+            By.xpath("//*[@id=\"root\"]/div/div/main/div/div/div[1]/button");
+
+    // ================= FIELDS =================
+
+    // Referred To Member dropdown
+    private By memberDropdown =
+            By.xpath("//select[option[contains(text(),'Select a member')]]");
+
+    // Client Full Name
+    private By clientName =
+            By.xpath("//input[@placeholder='e.g. John Doe']");
+
+    // Contact Number
+    private By contactNumber =
+            By.xpath("//input[contains(@placeholder,'99999')]");
+
+    // Priority Level dropdown
+    private By priorityLevel =
+            By.xpath("//select[option[contains(text(),'Select Level')]]");
+
+    // Company / Organization
+    private By companyName =
+            By.xpath("//input[@placeholder='e.g. Acme Corp']");
+
+    // Additional Notes
+    private By additionalNotes =
+            By.xpath("//textarea[contains(@placeholder,'context')]");
+
+    // Submit button
+    private By submitBtn =
             By.xpath("//button[normalize-space()='Send Referral']");
 
-    // react-select (Select Member)
-    private By selectMemberInput =
-            By.xpath("//input[@role='combobox']");
-
-    // Normal select (Flag)
-    private By flagDropdown =
-            By.name("ref_flag");
-
-    // Fields
-    private By referralNameInput =
-            By.xpath("//label[text()='Referral Name']/following::input[1]");
-
-    private By emailInput =
-            By.xpath("//label[text()='Email']/following::input[1]");
-
-    private By contactNoInput =
-            By.xpath("//label[contains(text(),'Contact No')]/following::input[1]");
-
-    private By companyNameInput =
-            By.xpath("//label[text()='Company Name']/following::input[1]");
-
-    private By descriptionInput =
-            By.xpath("//label[text()='Referral Description']/following::textarea[1]");
-
-    private By submitBtn =
-            By.xpath("//button[normalize-space()='Submit']");
-
-    private By successAlert =
-            By.xpath("//div[@role='alert' and contains(@class,'alert-success')]");
-
+    // Success message
+    private By successToast =
+            By.xpath("//div[contains(@class,'Toastify__toast') and contains(text(),'Referral sent successfully')]");
 
     public ReferralPage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickSendReferral() {
+    // ================= ACTIONS =================
+
+    public void clickSendReferralButton() {
         WaitUtils.waitForClickable(driver, sendReferralBtn).click();
     }
 
-    public void selectMember(String name) {
-        WebElement input = WaitUtils.waitForVisible(driver, selectMemberInput);
-        input.click();
-        input.sendKeys(name);
-        input.sendKeys(Keys.ENTER);
+    public void selectMember(String memberName) {
+
+        Select select =
+                new Select(
+                        WaitUtils.waitForVisible(driver, memberDropdown)
+                );
+
+        boolean found = false;
+
+        for (WebElement option : select.getOptions()) {
+
+            if (option.getText().trim()
+                    .equalsIgnoreCase(memberName.trim())) {
+
+                option.click();
+
+                found = true;
+
+                break;
+            }
+        }
+
+        if (!found) {
+
+            throw new RuntimeException(
+                    "Member not found in dropdown: " + memberName
+            );
+        }
     }
 
-    public void selectFlag(String flag) {
-        Select select = new Select(WaitUtils.waitForVisible(driver, flagDropdown));
-        select.selectByVisibleText(flag);
+    public void enterClientName(String name) {
+
+        WaitUtils.waitForVisible(driver, clientName)
+                .sendKeys(name);
     }
 
-    public void fillReferralForm(String name, String email, String mobile,
-                                 String company, String desc) {
+    public void enterContactNumber(String number) {
 
-        WaitUtils.waitForVisible(driver, referralNameInput).sendKeys(name);
-        WaitUtils.waitForVisible(driver, emailInput).sendKeys(email);
-        WaitUtils.waitForVisible(driver, contactNoInput).sendKeys(mobile);
-        WaitUtils.waitForVisible(driver, companyNameInput).sendKeys(company);
-        WaitUtils.waitForVisible(driver, descriptionInput).sendKeys(desc);
+        WaitUtils.waitForVisible(driver, contactNumber)
+                .sendKeys(number);
     }
 
-    public void submit() {
+    public void selectPriorityLevel(String level) {
+
+        Select select =
+                new Select(
+                        WaitUtils.waitForVisible(driver, priorityLevel)
+                );
+
+        for (WebElement option : select.getOptions()) {
+
+            String text = option.getText().toLowerCase();
+
+            if (text.contains(level.toLowerCase())) {
+
+                option.click();
+
+                return;
+            }
+        }
+
+        throw new RuntimeException(
+                "Priority level not found: " + level
+        );
+    }
+
+    public void enterCompanyName(String company) {
+
+        WaitUtils.waitForVisible(driver, companyName)
+                .sendKeys(company);
+    }
+
+    public void enterAdditionalNotes(String notes) {
+
+        WaitUtils.waitForVisible(driver, additionalNotes)
+                .sendKeys(notes);
+    }
+
+    public void submitReferral() {
+
         WaitUtils.waitForClickable(driver, submitBtn).click();
     }
 
-    public boolean waitForSuccessMessage() {
+    // ================= ASSERT =================
+
+    public boolean isReferralSentSuccessfully() {
+
         try {
-            WaitUtils.waitForVisible(driver, successAlert);
+
+            WaitUtils.waitForVisible(driver, successToast);
+
             return true;
+
         } catch (Exception e) {
+
             return false;
         }
     }

@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Automation_Suite" class="navigator-link">
-              <span class="suite-name border-passed">Automation Suite</span>
+              <span class="suite-name border-failed">Automation Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Automation_Suite" class="navigator-link ">
-                    <span>C:\Users\Lenovo\Documents\workspace-spring-tool-suite-4-4.17.1.RELEASE\automation\testng.xml</span>
+                    <span>G:\CB_Automation\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">5 methods,   5 passed</span>
+                    <span class="method-stats">7 methods, 1 failed,   6 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Automation_Suite" class="hide-methods failed suite-Automation_Suite"> (hide)</a> <!-- hide-methods failed suite-Automation_Suite -->
+                      <a href="#" panel-name="suite-Automation_Suite" class="show-methods failed suite-Automation_Suite"> (show)</a> <!-- show-methods failed suite-Automation_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Automation_Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Automation_Suite" title="tests.MemberMeetingPositiveTest" class="method navigator-link" hash-for-method="verifyUserCanScheduleMemberMeetingSuccessfully">verifyUserCanScheduleMemberMeetingSuccessfully</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Automation_Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,27 +117,32 @@
                     <div class="method-list-content passed suite-Automation_Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Automation_Suite" title="tests.SignupPositiveTest" class="method navigator-link" hash-for-method="signupWithValidData(jack, Sparrow, user_1771227348151@testmail.com, 9227348151, 5)">signupWithValidData(jack, Sparrow, user_1771227348151@testmail.com, 9227348151, 5)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Automation_Suite" title="tests.ChapterAdminCreateEventTest" class="method navigator-link" hash-for-method="chapterAdminShouldCreateEventSuccessfully">chapterAdminShouldCreateEventSuccessfully</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Automation_Suite" title="tests.SignupValidationTest" class="method navigator-link" hash-for-method="verifyInvalidEmailValidation">verifyInvalidEmailValidation</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Automation_Suite" title="tests.CreateTrainingTest" class="method navigator-link" hash-for-method="chapterAdminShouldCreateTrainingSuccessfully">chapterAdminShouldCreateTrainingSuccessfully</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Automation_Suite" title="tests.SignupValidationTest" class="method navigator-link" hash-for-method="verifyInvalidMobileNumberValidation">verifyInvalidMobileNumberValidation</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Automation_Suite" title="tests.ChapterAdminCreateMeetingTest" class="method navigator-link" hash-for-method="chapterAdminShouldScheduleMeetingSuccessfully">chapterAdminShouldScheduleMeetingSuccessfully</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Automation_Suite" title="tests.SignupPositiveTest" class="method navigator-link" hash-for-method="signupWithValidData(jack, Sparrow, user_1774595614519@testmail.com, 9595614519, 5)">signupWithValidData(jack, Sparrow, user_1774595614519@testmail.com, 9595614519, 5)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Automation_Suite" title="tests.CreatePostTest" class="method navigator-link" hash-for-method="userCreatePostSuccessfully">userCreatePostSuccessfully</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Automation_Suite" title="tests.SendReferralPositiveTest" class="method navigator-link" hash-for-method="verifyUserCanSendReferralSuccessfully">verifyUserCanSendReferralSuccessfully</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Automation_Suite" title="tests.SendThankYouNotePositiveTest" class="method navigator-link" hash-for-method="verifyUserCanSendThankYouNoteSuccessfully">verifyUserCanSendThankYouNoteSuccessfully</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Automation_Suite -->
@@ -138,59 +157,26 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Automation_Suite" class="panel Automation_Suite">
-          <div class="suite-Automation_Suite-class-passed">
+          <div class="suite-Automation_Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">tests.SignupValidationTest</span>
+              <img src="failed.png"/>
+              <span class="class-name">tests.MemberMeetingPositiveTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyInvalidEmailValidation">
-                  </a> <!-- verifyInvalidEmailValidation -->
-                  <span class="method-name">verifyInvalidEmailValidation</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifyInvalidMobileNumberValidation">
-                  </a> <!-- verifyInvalidMobileNumberValidation -->
-                  <span class="method-name">verifyInvalidMobileNumberValidation</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Automation_Suite-class-passed -->
-          <div class="suite-Automation_Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">tests.SendThankYouNotePositiveTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifyUserCanSendThankYouNoteSuccessfully">
-                  </a> <!-- verifyUserCanSendThankYouNoteSuccessfully -->
-                  <span class="method-name">verifyUserCanSendThankYouNoteSuccessfully</span>
+                  <a name="verifyUserCanScheduleMemberMeetingSuccessfully">
+                  </a> <!-- verifyUserCanScheduleMemberMeetingSuccessfully -->
+                  <span class="method-name">verifyUserCanScheduleMemberMeetingSuccessfully</span>
+                  <div class="stack-trace">java.lang.AssertionError: Meeting should be scheduled successfully expected [true] but found [false]
+	at tests.MemberMeetingPositiveTest.verifyUserCanScheduleMemberMeetingSuccessfully(MemberMeetingPositiveTest.java:56)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Automation_Suite-class-passed -->
-          <div class="suite-Automation_Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">tests.SignupPositiveTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="signupWithValidData(jack, Sparrow, user_1771227348151@testmail.com, 9227348151, 5)">
-                  </a> <!-- signupWithValidData(jack, Sparrow, user_1771227348151@testmail.com, 9227348151, 5) -->
-                  <span class="method-name">signupWithValidData</span>
-                  <span class="parameters">(jack,Sparrow,user_1771227348151@testmail.com,9227348151,5)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Automation_Suite-class-passed -->
+          </div> <!-- suite-Automation_Suite-class-failed -->
           <div class="suite-Automation_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -206,10 +192,86 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Automation_Suite-class-passed -->
+          <div class="suite-Automation_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">tests.CreatePostTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="userCreatePostSuccessfully">
+                  </a> <!-- userCreatePostSuccessfully -->
+                  <span class="method-name">userCreatePostSuccessfully</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Automation_Suite-class-passed -->
+          <div class="suite-Automation_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">tests.ChapterAdminCreateEventTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="chapterAdminShouldCreateEventSuccessfully">
+                  </a> <!-- chapterAdminShouldCreateEventSuccessfully -->
+                  <span class="method-name">chapterAdminShouldCreateEventSuccessfully</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Automation_Suite-class-passed -->
+          <div class="suite-Automation_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">tests.SignupPositiveTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="signupWithValidData(jack, Sparrow, user_1774595614519@testmail.com, 9595614519, 5)">
+                  </a> <!-- signupWithValidData(jack, Sparrow, user_1774595614519@testmail.com, 9595614519, 5) -->
+                  <span class="method-name">signupWithValidData</span>
+                  <span class="parameters">(jack,Sparrow,user_1774595614519@testmail.com,9595614519,5)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Automation_Suite-class-passed -->
+          <div class="suite-Automation_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">tests.CreateTrainingTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="chapterAdminShouldCreateTrainingSuccessfully">
+                  </a> <!-- chapterAdminShouldCreateTrainingSuccessfully -->
+                  <span class="method-name">chapterAdminShouldCreateTrainingSuccessfully</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Automation_Suite-class-passed -->
+          <div class="suite-Automation_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">tests.ChapterAdminCreateMeetingTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="chapterAdminShouldScheduleMeetingSuccessfully">
+                  </a> <!-- chapterAdminShouldScheduleMeetingSuccessfully -->
+                  <span class="method-name">chapterAdminShouldScheduleMeetingSuccessfully</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Automation_Suite-class-passed -->
         </div> <!-- panel Automation_Suite -->
         <div panel-name="test-xml-Automation_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Lenovo\Documents\workspace-spring-tool-suite-4-4.17.1.RELEASE\automation\testng.xml</span>
+            <span class="header-content">G:\CB_Automation\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -222,9 +284,12 @@
   &lt;test thread-count=&quot;5&quot; name=&quot;Signup Tests&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;tests.SignupPositiveTest&quot;/&gt;
-      &lt;class name=&quot;tests.SignupValidationTest&quot;/&gt;
       &lt;class name=&quot;tests.SendReferralPositiveTest&quot;/&gt;
-      &lt;class name=&quot;tests.SendThankYouNotePositiveTest&quot;/&gt;
+      &lt;class name=&quot;tests.MemberMeetingPositiveTest&quot;/&gt;
+      &lt;class name=&quot;tests.ChapterAdminCreateEventTest&quot;/&gt;
+      &lt;class name=&quot;tests.CreatePostTest&quot;/&gt;
+      &lt;class name=&quot;tests.ChapterAdminCreateMeetingTest&quot;/&gt;
+      &lt;class name=&quot;tests.CreateTrainingTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Signup Tests --&gt;
 &lt;/suite&gt; &lt;!-- Automation Suite --&gt;
@@ -238,7 +303,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Signup Tests (4 classes)</span>
+                <span class="test-name">Signup Tests (7 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -264,32 +329,40 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(5);
+data.addRows(7);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyUserCanSendReferralSuccessfully')
-data.setCell(0, 2, 'tests.SendReferralPositiveTest')
-data.setCell(0, 3, 8421);
+data.setCell(0, 1, 'verifyUserCanScheduleMemberMeetingSuccessfully')
+data.setCell(0, 2, 'tests.MemberMeetingPositiveTest')
+data.setCell(0, 3, 17357);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'signupWithValidData')
-data.setCell(1, 2, 'tests.SignupPositiveTest')
-data.setCell(1, 3, 7736);
+data.setCell(1, 1, 'chapterAdminShouldCreateEventSuccessfully')
+data.setCell(1, 2, 'tests.ChapterAdminCreateEventTest')
+data.setCell(1, 3, 10590);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'verifyUserCanSendThankYouNoteSuccessfully')
-data.setCell(2, 2, 'tests.SendThankYouNotePositiveTest')
-data.setCell(2, 3, 7519);
+data.setCell(2, 1, 'chapterAdminShouldCreateTrainingSuccessfully')
+data.setCell(2, 2, 'tests.CreateTrainingTest')
+data.setCell(2, 3, 8632);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'verifyInvalidEmailValidation')
-data.setCell(3, 2, 'tests.SignupValidationTest')
-data.setCell(3, 3, 3892);
+data.setCell(3, 1, 'chapterAdminShouldScheduleMeetingSuccessfully')
+data.setCell(3, 2, 'tests.ChapterAdminCreateMeetingTest')
+data.setCell(3, 3, 7990);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'verifyInvalidMobileNumberValidation')
-data.setCell(4, 2, 'tests.SignupValidationTest')
-data.setCell(4, 3, 3429);
+data.setCell(4, 1, 'verifyUserCanSendReferralSuccessfully')
+data.setCell(4, 2, 'tests.SendReferralPositiveTest')
+data.setCell(4, 3, 7252);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'userCreatePostSuccessfully')
+data.setCell(5, 2, 'tests.CreatePostTest')
+data.setCell(5, 3, 3927);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'signupWithValidData')
+data.setCell(6, 2, 'tests.SignupPositiveTest')
+data.setCell(6, 3, 1865);
 window.suiteTableData['Automation_Suite']= { tableData: data, tableDiv: 'times-div-Automation_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 30 seconds</span>
+              <span class="suite-total-time">Total running time: 57 seconds</span>
               <div id="times-div-Automation_Suite">
               </div> <!-- times-div-Automation_Suite -->
             </div> <!-- times-div -->
@@ -321,69 +394,104 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">signupWithValidData(jack, Sparrow, user_1771227348151@testmail.com, 9227348151, 5)</span>
-                <span class="method-start">6942 ms</span>
+                <span class="method-name">signupWithValidData(jack, Sparrow, user_1774595614519@testmail.com, 9595614519, 5)</span>
+                <span class="method-start">8123 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">14708 ms</span>
-              </div> <!-- configuration-method after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">tests.SignupValidationTest</div> <!-- chronological-class-name -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">15206 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">verifyInvalidEmailValidation</span>
-                <span class="method-start">20126 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">24023 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">24461 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">verifyInvalidMobileNumberValidation</span>
-                <span class="method-start">28566 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">31995 ms</span>
+                <span class="method-start">10020 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">tests.SendReferralPositiveTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">32431 ms</span>
+                <span class="method-start">10470 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">verifyUserCanSendReferralSuccessfully</span>
-                <span class="method-start">37202 ms</span>
+                <span class="method-start">14391 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">45623 ms</span>
+                <span class="method-start">21646 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
-              <div class="chronological-class-name">tests.SendThankYouNotePositiveTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">tests.MemberMeetingPositiveTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">46022 ms</span>
+                <span class="method-start">22080 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">verifyUserCanSendThankYouNoteSuccessfully</span>
-                <span class="method-start">50935 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">verifyUserCanScheduleMemberMeetingSuccessfully</span>
+                <span class="method-start">25556 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">58454 ms</span>
+                <span class="method-start">42923 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">tests.ChapterAdminCreateEventTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">43316 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">chapterAdminShouldCreateEventSuccessfully</span>
+                <span class="method-start">47039 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">57631 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">tests.CreatePostTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">58121 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">userCreatePostSuccessfully</span>
+                <span class="method-start">61809 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">65737 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">tests.ChapterAdminCreateMeetingTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">66313 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">chapterAdminShouldScheduleMeetingSuccessfully</span>
+                <span class="method-start">69898 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">77892 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">tests.CreateTrainingTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">78425 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">chapterAdminShouldCreateTrainingSuccessfully</span>
+                <span class="method-start">81943 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">90577 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

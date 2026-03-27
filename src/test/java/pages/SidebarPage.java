@@ -9,14 +9,14 @@ public class SidebarPage extends BasePage{
 
     // ☰ Menu button
     private By menuButton =
-            By.cssSelector("a.sidebar-toggle");
+            By.xpath("//*[@id=\"root\"]/div/header/div[1]/button/svg");
 
     private By referralButton =
-            By.xpath("//*[@id=\"sidebar-menu\"]/li[4]/a/span");
+            By.xpath("//*[@id=\"root\"]/div/div/aside/div[2]/div/div[1]/button");
 
     // Referrals Sent
     private By referralsSentLink =
-            By.xpath("//span[normalize-space()='Referrals Sent']");
+            By.xpath("//*[@id=\"root\"]/div/div/aside/div[2]/div/div[1]/div/a[2]");
 
     private By thankYouNoteLink =
             By.xpath("//span[normalize-space()='Thank You Note']");
@@ -26,11 +26,48 @@ public class SidebarPage extends BasePage{
 
     // Meetings (parent)
     private By meetingsMenu =
-            By.xpath("//span[normalize-space()='Meetings']");
+            By.xpath("//*[@id=\"root\"]/div/div/aside/div[2]/div/div[2]/button/span");
 
     // Member Meetings (child)
     private By memberMeetings =
-            By.xpath("//span[normalize-space()='Member Meetings']");
+            By.xpath("//*[@id=\"root\"]/div/div/aside/div[2]/div/div[2]/div/a[1]");
+
+    // Event (parent)
+    private By eventMenu =
+            By.cssSelector("a[href='/info/events']");
+
+    //chapter admin meetings
+    private By meetingMenu =
+            By.xpath("//*[@id=\"root\"]/div/div/aside/div[2]/div/div[2]/button");
+
+    private By chapterMeetingsSubMenu =
+            By.xpath("//*[@id=\"root\"]/div/div/aside/div[2]/div/div[2]/div/a[2]");
+
+    private By trainingMenu =
+            By.xpath("//*[@id=\"root\"]/div/div/aside/div[2]/div/a[7]");
+
+    public void openChapterMeetingsPage(){
+
+        // click Meetings first Chapter admin meetings
+        WaitUtils.waitForClickable(driver, meetingMenu)
+                .click();
+
+        // then click Chapter Meetings
+        WaitUtils.waitForClickable(driver, chapterMeetingsSubMenu)
+                .click();
+    }
+
+    public void openTrainingPage(){
+
+        WaitUtils.waitForClickable(driver, trainingMenu)
+                .click();
+    }
+
+    public void openEventPage() {
+        WaitUtils.waitForClickable(driver, eventMenu).click();
+    }
+
+
 
     public void clickTYNotesSent() {
         WaitUtils.waitForClickable(driver, tyNotesSent).click();
